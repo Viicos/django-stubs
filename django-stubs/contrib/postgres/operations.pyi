@@ -1,5 +1,3 @@
-from typing import Literal
-
 from django.db.backends.base.schema import BaseDatabaseSchemaEditor
 from django.db.migrations import AddConstraint, AddIndex, RemoveIndex
 from django.db.migrations.operations.base import Operation
@@ -37,7 +35,6 @@ class NotInTransactionMixin:
     def _ensure_not_in_transaction(self, schema_editor: BaseDatabaseSchemaEditor) -> None: ...
 
 class AddIndexConcurrently(NotInTransactionMixin, AddIndex): ...
-
 class RemoveIndexConcurrently(NotInTransactionMixin, RemoveIndex): ...
 
 class CollationOperation(Operation):
